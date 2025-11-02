@@ -46,6 +46,7 @@ def _candidates_for(user):
     voted_user_ids = Vote.objects.filter(voter=user).values_list("target_id", flat=True)
     print("🗳️ Déjà voté:", list(voted_user_ids))
 
+
     qs = Profile.objects.exclude(user=user).exclude(user__id__in=voted_user_ids)
     if my_profile.interet != "peu_importe":
         qs = qs.filter(genre=my_profile.interet)
@@ -129,14 +130,17 @@ def register_view(request):
 def matches_view(request):
     # ids des users pour lesquels current user a mis like
     liked_ids = Vote.objects.filter(voter=request.user, value=1).values_list("target_id", flat=True)
+    print(liked_ids)
 
     # ids des users qui ont aimé current user
     liked_by_ids = Vote.objects.filter(target=request.user, value=1).values_list("voter_id", flat=True)
+    print(liked_by_ids)
 
     # intersection -> ids mutuels
     mutual_ids = set(liked_ids).intersection(set(liked_by_ids))
+    print(mutual_ids)
 
-    matches = User.objects.filter(id__in=mutual_ids).select_related("profile")
+    matches = Profile.objects.filter(user__id__in=mutual_ids).select_related("user")
 
     return render(request, "findeur/matches.html", {"matches": matches})
 

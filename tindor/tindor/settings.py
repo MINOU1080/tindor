@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-*bu%(r#r_vee23*iqcs*-e!hvy6#den2*=8m^8+e6ohp#o3t_x
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # secret key (à configurer sur Render ensuite)
-SECRET_KEY_2 = os.environ.get("SECRET_KEY", "dev-key-change-me")
+SECRET_KEY_2 = os.environ.get("SECRET_KEY", "2a6d765810b0ac3a1b64d44c31d4db1c")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!

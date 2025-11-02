@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mes matches</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'findeur/css/style.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Tindor 💘</h1>
+    <nav>
+      <a href="{% url 'findeur:browse' %}">Découvrir</a>
+      <a href="{% url 'findeur:profil' %}">Profil</a> <!-- ✅ corrigé -->
+      <a href="{% url 'findeur:logout' %}">Se déconnecter</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>💞 Mes matches</h2>
+
+    {% if matches %}
+      <div id="matches-liste" class="card-list" aria-live="polite">
+        {% for m in matches %}
+          <div class="match-card">
+            <h3>{{ m.user.username }}</h3>
+            <p>Genre : {{ m.genre }}</p>
+            <p>Intéressé par : {{ m.interet }}</p>
+
+            {% if m.latitude and m.longitude %}
+              <p>Coordonnées : {{ m.latitude }}, {{ m.longitude }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div id="matches-list" class="card-list">
+        <p class="placeholder">Aucun match pour le moment 😢</p>
+      </div>
+    {% endif %}
+  </main>
+</body>
+</html>

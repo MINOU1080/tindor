@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Découvrir</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'findeur/css/style.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Tindor 💘</h1>
+    <nav>
+      <a href="{% url 'findeur:matches' %}">Matches</a>
+      <a href="{% url 'findeur:profil' %}">Profil</a>  <!-- ⚠️ corrigé ici : 'profile' au lieu de 'profil' -->
+      <a href="{% url 'findeur:logout' %}">Se déconnecter</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Profils à découvrir</h2>
+
+    {% if profile %}
+      <div id="current-profile-2" class="profile-card" aria-live="polite">
+        <h3>{{ profile.user.username }}</h3>
+        <p>Genre : {{ profile.genre }}</p>
+        <p>Intéressé par : {{ profile.interet }}</p>
+        {% if profile.latitude and profile.longitude %}
+          <p>Coordonnées : {{ profile.latitude }}, {{ profile.longitude }}</p>
+        {% endif %}
+      </div>
+
+      <!-- Formulaire de vote -->
+      <div class="action-row">
+        <form method="post" action="{% url 'findeur:vote' profile.user.id %}">
+          {% csrf_token %}
+          <button name="value" value="0" class="btn btn-negative" type="submit" aria-label="Non">✖</button>
+          <button name="value" value="1" class="btn btn-positive" type="submit" aria-label="Oui">❤</button>
+        </form>
+      </div>
+    {% else %}
+      <div id="current-profile" class="profile-card">
+        <p class="placeholder">Aucun profil à afficher pour l’instant.</p>
+      </div>
+    {% endif %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #1f1c2c, #928dab);
+    color: white;
+    margin: 0;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    background-color: white;
+    color: #1f1c2c;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background-color: #e6e6e6;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 10px;
+    width: 320px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #ffffff;
+    color: #1f1c2c;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #f2f2f2;
+}
+
+
+/* ======== PAGE MATCHES ======== */
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card-list .placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+}
+
+.match-card {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 15px 20px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ======== PAGE PROFIL ======== */
+form.form-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 25px 30px;
+    border-radius: 10px;
+    width: 320px;
+    margin-top: 30px;
+}
+
+form.form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form.form-container select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+form.form-container .submit-btn {
+    width: 100%;
+    background-color: #fff;
+    color: #1f1c2c;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+form.form-container .submit-btn:hover {
+    background-color: #f2f2f2;
+}
+
+/* ======== PAGE BROWSE (DÉCOUVERTE) ======== */
+.profile-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    width: 300px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 40px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: scale(1.02);
+}
+
+.profile-card .placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
+
+/* Zone des boutons de choix */
+.action-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 25px;
+}
+
+.action-row .btn {
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Bouton "Non" (croix rouge) */
+.btn-negative {
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+}
+
+.btn-negative:hover {
+    background-color: rgba(255, 0, 0, 0.9);
+}
+
+/* Bouton "Oui" (coeur vert/rose) */
+.btn-positive {
+    background-color: rgba(0, 255, 127, 0.7);
+    color: white;
+}
+
+.btn-positive:hover {
+    background-color: rgba(0, 255, 127, 0.9);
+}

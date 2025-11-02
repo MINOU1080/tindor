@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Page d'accueil</title>
-    <h1> premiere ligne </h1>
-</head>
-<body>
+{% extends 'findeur/base.html' %}
 
-</body>
-</html>
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+    <h2>Bienvenue sur Tindor 💘</h2>
+    <p>Connecte-toi ou crée un compte pour commencer à rencontrer de nouvelles personnes !</p>
+
+    <div class="buttons">
+        <a href="{% url 'findeur:login' %}" class="btn">Se connecter</a>
+        <a href="{% url 'findeur:register' %}" class="btn">S’inscrire</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mes matches</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'findeur/css/style.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Tindor 💘</h1>
+    <nav>
+      <a href="{% url 'findeur:browse' %}">Découvrir</a>
+      <a href="{% url 'findeur:matches' %}">Matches</a>
+      <a href="{% url 'findeur:logout' %}">Logout</a>
+
+
+    </nav>
+  </header>
+
+  <main>
+  <h2>Mon profil</h2>
+
+  <!-- Espace formulaire (sans logique) -->
+  <form class="form-container" method="post">
+    {% csrf_token %}
+    <label>Genre</label>
+    <select name="genre">
+      <option value="homme">Homme</option>
+      <option value="femme">Femme</option>
+      <option value="autre">Autre</option>
+    </select>
+
+    <label>Intéressé par</label>
+    <select name="interet">
+      <option value="homme">Homme</option>
+      <option value="femme">Femme</option>
+      <option value="peu_importe">Peu importe</option>
+    </select>
+
+    <!-- Bouton statique pour l’instant -->
+    <button type="submit" class="submit-btn">Enregistrer</button>
+  </form>
+  </main>
+</body>
+</html>

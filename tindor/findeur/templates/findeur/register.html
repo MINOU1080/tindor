@@ -1,0 +1,41 @@
+{% extends 'findeur/base.html' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>Inscription</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label>Identifiant :</label>
+            <input type="text" name="name" placeholder="Votre identifiant" required>
+
+            <label>Mot de passe :</label>
+            <input type="password" name="password" placeholder="Votre mot de passe" required>
+
+            <label>Genre :</label>
+            <select name="genre" required>
+                <option value="homme">Homme</option>
+                <option value="femme">Femme</option>
+                <option value="autre">Autre</option>
+            </select>
+
+            <label>Intéressé par :</label>
+            <select name="interet" required>
+                <option value="homme">Homme</option>
+                <option value="femme">Femme</option>
+                <option value="peu_importe">Peu importe</option>
+            </select>
+
+            <label>Coordonnées géographiques :</label>
+            <input type="text" name="coordonnees" placeholder="Ex: 50.85, 4.35 (Bruxelles)" required>
+
+            <button type="submit" class="submit-btn">S’inscrire</button>
+        </form>
+
+        {% if error %}
+            <p style="color: #ffb3b3; font-weight: bold;">{{ error }}</p>
+        {% endif %}
+
+    </div>
+{% endblock %}

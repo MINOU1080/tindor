@@ -1,0 +1,1 @@
+web: gunicorn tindor.wsgi --log-file -

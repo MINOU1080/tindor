@@ -65,7 +65,7 @@ def _candidates_for(user):
                 print(p.longitude)
                 dist = _distance_km(my_lat, my_lon, p.latitude, p.longitude)
                 print(dist)
-                if dist <= 500:
+                if dist <= 5:
                     nearby.append(p.user.id)
 
         qs = qs.filter(user__id__in=nearby)
